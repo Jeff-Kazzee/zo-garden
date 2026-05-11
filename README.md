@@ -1,66 +1,60 @@
 # zo-garden
 
-A community-curated registry of Skills, Personas, Prompts, and resources for [Zo Computer](https://zo.computer).
+A community-curated **directory of links** for [Zo Computer](https://zo.computer) and adjacent AI tooling — Skills, Personas, Prompts, tools, projects, and writing worth your time.
 
-The official [`zocomputer/skills`](https://github.com/zocomputer/skills) registry is curated by Zo. This one is curated by the community. Higher signal, lower volume, opinionated about quality.
+The official [`zocomputer/skills`](https://github.com/zocomputer/skills) registry hosts code curated by Zo. This is different: a thin, opinionated index of work that lives elsewhere. Higher signal, lower volume, no hosting overhead.
 
 > Things grow here. Things also get pruned.
 
-## What's in here
+## The index
 
-| Folder | What it holds | Install pattern |
-|---|---|---|
-| [`skills/`](skills/) | Installable Agent Skills with `SKILL.md` + scripts/assets | One-line `curl + tar` (see below) |
-| [`personas/`](personas/) | Persona definitions for Zo | Copy `.md` file, paste into Personas settings |
-| [`prompts/`](prompts/) | Reusable prompt files (`.prompt.md`) | Drop into a workspace folder |
-| [`resources.md`](resources.md) | Curated external links — full projects, posts, talks, courses | Click |
+→ **[`INDEX.md`](INDEX.md)** — the directory itself, grouped by type.
 
-## Install a skill
+Entries point at the real source — a GitHub repo, a gist, a personal site, a video, a course. We don't host code. We vouch for links.
 
-```bash
-slug="<skill-slug>"; dest="Skills"; manifest_url="https://raw.githubusercontent.com/Jeff-Kazzee/zo-garden/main/manifest.json"; mkdir -p "$dest" && tarball_url="$(curl -fsSL "$manifest_url" | jq -r '.tarball_url')" && archive_root="$(curl -fsSL "$manifest_url" | jq -r '.archive_root')" && curl -L "$tarball_url" | tar -xz -C "$dest" --strip-components=2 "$archive_root/skills/$slug"
-```
+## Submit a link
 
-Replace `<skill-slug>` with the skill's directory name. Find slugs in [`manifest.json`](manifest.json) or browse [`skills/`](skills/).
+Two ways, pick one:
 
-## Contribute
+1. **[Open an issue](https://github.com/Jeff-Kazzee/zo-garden/issues/new?template=submit-link.yml)** — fastest. Fill out the form, the maintainer adds it to `INDEX.md`.
+2. **Open a PR** — edit `INDEX.md` directly. Use the PR template. See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
-We require a real quality bar before merging. Read [`CONTRIBUTING.md`](CONTRIBUTING.md) first — it's short and it matters.
+Either way: the description must explain *why this is worth a Zo user's attention*, not just what it is.
 
-The short version:
+## What we accept
 
-1. **Fork**, branch, add your submission under the right folder.
-2. **Follow the example.** Each folder has a `_example/` directory showing the gold standard.
-3. **Run `bun validate`** locally. CI will run it again on your PR — don't make us discover problems for you.
-4. **Open a PR** using the template. Fill in every section.
-5. **Expect review feedback.** This is a curated registry, not a dumping ground. Pushback is the product, not a failure.
+| Section | What belongs there |
+|---|---|
+| Skills | Installable Agent Skills hosted on GitHub, gists, or your own site |
+| Personas | Persona definitions (system prompts) you can copy into Zo |
+| Prompts | Reusable prompts, single-purpose, copy-and-run |
+| Tools & utilities | CLIs, extensions, scripts that play well with Zo or AI workflows |
+| Projects built on Zo | Sites, services, products, experiments running on Zo Computer |
+| Reading | Posts, essays, threads on AI-assisted development |
+| Talks & videos | Recorded talks, demos, conference sessions |
+| Courses & tutorials | Structured learning material |
+
+If your submission doesn't fit, [open an issue](https://github.com/Jeff-Kazzee/zo-garden/issues/new) and propose a new section.
 
 ## Quality bar
 
-A submission gets merged when it clears all of these:
+Submissions clear all of these or they don't get merged:
 
-- **It works.** Scripts run. Frontmatter parses. Required fields exist.
-- **It's specific.** Description tells me *when* to use it, not just *what* it is. "Helps with productivity" is rejected on sight.
-- **It's not slop.** No banned LLM phrases (see [`CONTRIBUTING.md`](CONTRIBUTING.md)), no hallucinated APIs, no copy-paste from another registry without attribution.
-- **It's safe.** No hardcoded secrets, no destructive defaults, no calls to private endpoints.
-- **It's yours or properly credited.** MIT-compatible license, original work or clear attribution.
+- **The link works** and points at a primary source (not a Twitter screenshot of the thing).
+- **The description tells a Zo user when or why to care** — not just what it is. "Helpful tool" gets rejected on sight.
+- **No LLM slop.** Banned phrases listed in [`CONTRIBUTING.md`](CONTRIBUTING.md).
+- **No spam, no self-aggrandizing fluff.** One line, specific, useful.
+- **No duplicates.** Check the index first.
 
-## Manifest
-
-`manifest.json` is generated by CI on merges to `main`. Don't edit it by hand.
+## Validation
 
 ```bash
-bun manifest   # regenerate locally if needed
-bun validate   # validate everything in the repo
+bun install
+bun validate
 ```
 
-## Repo conventions
-
-- Slugs are lowercase, hyphenated, no leading/trailing hyphens.
-- `SKILL.md` frontmatter follows the [Agent Skills spec](https://agentskills.io/specification).
-- `DISPLAY.json` is optional but encouraged — see [`zocomputer/skills/DISPLAY.md`](https://github.com/zocomputer/skills/blob/main/DISPLAY.md) for the schema.
-- Submissions go in their type folder. Trust tiers (Official / External / Community) live in the upstream registry, not here.
+The validator checks `INDEX.md` for banned phrases, duplicate URLs, and broken entry format. CI runs it on every PR.
 
 ## License
 
-MIT. See [`LICENSE`](LICENSE). By contributing you agree your submission is MIT-licensed and original (or properly attributed).
+MIT. See [`LICENSE`](LICENSE). Linking to your work doesn't transfer rights — your repo, your license. By submitting, you confirm the link points at something you have the right to share.

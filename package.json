@@ -1,16 +1,14 @@
 {
   "name": "zo-garden",
-  "version": "0.1.0",
-  "description": "Community-curated registry of Skills, Personas, and Prompts for Zo Computer.",
+  "version": "0.2.0",
+  "description": "Community-curated link directory for Zo Computer and adjacent AI tooling.",
   "private": true,
   "type": "module",
   "scripts": {
-    "validate": "bun scripts/validate.ts",
-    "manifest": "bun scripts/manifest.ts"
+    "validate": "bun scripts/validate.ts"
   },
   "devDependencies": {
-    "@types/bun": "latest",
-    "yaml": "^2.5.0"
+    "@types/bun": "latest"
   },
   "license": "MIT",
   "repository": {

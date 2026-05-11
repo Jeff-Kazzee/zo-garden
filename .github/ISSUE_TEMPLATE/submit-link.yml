@@ -1,0 +1,80 @@
+name: Submit a link
+description: Suggest something for the zo-garden directory (Skill, Persona, Prompt, tool, project, post, talk, course).
+title: "[submit] "
+labels: ["submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for submitting. Read [`CONTRIBUTING.md`](https://github.com/Jeff-Kazzee/zo-garden/blob/main/CONTRIBUTING.md) first — quality bar is real.
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      description: What's it called?
+      placeholder: e.g., just-fucking-cancel
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      description: A permalink to the work itself, not a tweet or screenshot about it.
+      placeholder: https://github.com/your-handle/your-thing
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Section
+      description: Which section of `INDEX.md` does this belong in?
+      options:
+        - Skills
+        - Personas
+        - Prompts
+        - Tools & utilities
+        - Projects built on Zo
+        - Reading
+        - Talks & videos
+        - Courses & tutorials
+        - Not sure / propose a new section
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: One-sentence description
+      description: |
+        Tell a Zo user *when or why* they should care. Not "useful tool" — something specific they'd search for.
+
+        Good: "Parse Apple Card / Chase / Mint CSVs to find recurring charges. Use when auditing subscriptions."
+        Bad:  "A useful tool for data analysis."
+      placeholder: One sentence. Ends with a period.
+    validations:
+      required: true
+  - type: input
+    id: author
+    attributes:
+      label: Author handle
+      description: GitHub / X / personal site — whatever you want shown after the entry.
+      placeholder: your-handle
+    validations:
+      required: true
+  - type: checkboxes
+    id: disclosures
+    attributes:
+      label: Disclosures
+      options:
+        - label: I read `CONTRIBUTING.md`
+          required: true
+        - label: This isn't a paid placement.
+          required: true
+        - label: I have the right to share this link (it's mine, or it's openly published and I'm crediting the author).
+          required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else?
+      description: Optional. Context the maintainer should know.
+    validations:
+      required: false
