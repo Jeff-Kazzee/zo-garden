@@ -1,0 +1,38 @@
+name: Submit a Resource link
+description: Suggest an external resource (project, blog post, course, video) for resources.md
+title: "[resource] "
+labels: ["submission", "resource"]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      placeholder: https://...
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: Name
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why does this matter to Zo users?
+      description: One or two sentences. "Useful project" is not enough.
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Projects built on Zo
+        - Writing about Zo / AI-assisted development
+        - Talks & videos
+        - Courses & tutorials
+        - Tools & utilities
+        - Other
+    validations:
+      required: true

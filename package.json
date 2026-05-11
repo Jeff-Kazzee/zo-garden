@@ -1,0 +1,20 @@
+{
+  "name": "zo-garden",
+  "version": "0.1.0",
+  "description": "Community-curated registry of Skills, Personas, and Prompts for Zo Computer.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "bun scripts/validate.ts",
+    "manifest": "bun scripts/manifest.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "yaml": "^2.5.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jeff-Kazzee/zo-garden"
+  }
+}
