@@ -1,101 +1,91 @@
 # Contributing to zo-garden
 
-We curate. We prune. We say no.
+This is a link directory, not a code registry. You submit a link. We curate.
 
-If that sounds harsh, the alternative is a registry where every install is a gamble. Other registries have tried that approach. They rot. This one won't.
+If that sounds light — it is, by design. Hosting code means we own its maintenance. Curating links means we vouch for taste. The work stays with you.
 
-## Before you open a PR
+## Two ways to submit
 
-Read this whole file. It takes three minutes and prevents most rejected submissions.
+### 1. Open an issue (preferred)
+
+[Submit a link →](https://github.com/Jeff-Kazzee/zo-garden/issues/new?template=submit-link.yml)
+
+Fill out the form. The maintainer adds the entry to `INDEX.md` when it clears the bar.
+
+### 2. Open a PR (power user)
+
+1. Fork.
+2. Edit [`INDEX.md`](INDEX.md). Add your entry under the right section, in this format:
+   ```
+   - [Name](https://your-link) — One-sentence description that says when or why a Zo user should care. *(your-handle)*
+   ```
+3. Run `bun install && bun validate` locally. Fix anything it flags.
+4. Open a PR. Use the template. Fill in every section.
 
 ## What we accept
 
-| Type | Folder | What it is |
-|---|---|---|
-| Skill | `skills/` | An installable Agent Skill with a `SKILL.md`. Mirrors the [Agent Skills spec](https://agentskills.io/specification). |
-| Persona | `personas/` | A persona definition (`.md` with frontmatter) describing identity, voice, and behavior. |
-| Prompt | `prompts/` | A reusable prompt file (`.prompt.md`) for a specific workflow. |
-| Resource | `resources.md` | An external link — project, blog post, course, video — that's worth knowing about. |
+Anything that fits one of the [`INDEX.md`](INDEX.md) sections:
 
-If your contribution doesn't fit one of these, open a discussion before building it.
+- **Skills** — Installable Agent Skills hosted somewhere with a permalink.
+- **Personas** — Persona definitions (system prompts).
+- **Prompts** — Reusable prompts, single-purpose.
+- **Tools & utilities** — CLIs, extensions, scripts.
+- **Projects built on Zo** — Live sites, services, products.
+- **Reading** — Posts, essays, threads.
+- **Talks & videos** — Recorded sessions.
+- **Courses & tutorials** — Structured material.
+
+If your link doesn't fit, open an issue first and propose a section.
 
 ## The quality bar
 
-We reject submissions that fail any of the following. No exceptions.
+### Must-haves
 
-### Functional
+- [ ] **The link works** and points at a primary source. Not a screenshot, not a tweet about the thing — the thing itself.
+- [ ] **The description tells a Zo user when or why to care.** Compare:
+  - ❌ "A useful tool for data analysis."
+  - ✅ "Parse Apple Card / Chase / Mint CSVs to find recurring charges. Use when auditing subscriptions."
+- [ ] **No duplicates.** Search `INDEX.md` first.
+- [ ] **Right section.** If unsure, ask.
 
-- [ ] **It works.** You ran it. End-to-end. On a clean Zo Computer.
-- [ ] **Frontmatter is valid.** Required fields exist with the right types and lengths.
-- [ ] **Scripts run on first try.** No undocumented dependencies, no path assumptions, no "you have to install X first" without saying so.
-- [ ] **No secrets in the repo.** API keys, tokens, passwords — none. Use environment variables and document them.
+### No slop
 
-### Substantive
+Banned phrases in any user-facing copy in this repo (descriptions, README, INDEX entries):
 
-- [ ] **The description tells me when to use it, not just what it is.** Compare:
-  - ❌ "A helpful tool for analyzing data."
-  - ✅ "Parse bank transaction CSVs from Apple Card, Chase, or Mint. Use when the user wants to find recurring charges or audit subscriptions."
-- [ ] **The skill does one thing well.** If your `SKILL.md` describes three unrelated workflows, split it into three skills.
-- [ ] **It's specific to a real use case.** Not "AI productivity assistant." Something a person would actually search for.
+> *delve, utilize, holistic, seamless, cutting-edge, synergy, paradigm, empower, deep dive, in terms of, it's important to note, at the end of the day, game-changer.*
 
-### Stylistic
+Concrete language wins. "Fix the file" beats "remediate the artifact."
 
-- [ ] **No LLM slop.** Banned phrases in any user-facing copy (`SKILL.md`, descriptions, README): *delve, utilize, leverage (verb), holistic, robust, seamless, cutting-edge, synergy, paradigm, empower, deep dive, unpack, in terms of, it's important to note, at the end of the day, game-changer.*
-- [ ] **Concrete language.** "Fix the file" beats "remediate the artifact." "Show" beats "demonstrate."
-- [ ] **Exclamation points sparingly.** One per file, max.
+### Safety & honesty
 
-### Safety
-
-- [ ] **No destructive defaults.** A skill that deletes files should require confirmation or a `--force` flag.
-- [ ] **No calls to private endpoints** without documenting them.
-- [ ] **No data exfiltration.** If your skill sends data anywhere, it must be obvious from the description.
-- [ ] **License is MIT-compatible.** No GPL, no proprietary, no "free for personal use only."
-
-## Submission workflow
-
-### For a Skill
-
-1. Fork the repo.
-2. Create your skill directory under `skills/<your-slug>/`. Slug rules: lowercase, hyphenated, must match the `name` field in frontmatter.
-3. Add a `SKILL.md` with valid frontmatter. Use `skills/_example/SKILL.md` as a reference.
-4. Add `scripts/`, `references/`, `assets/` as needed. No other top-level folders inside the skill.
-5. (Optional but encouraged) Add a `DISPLAY.json` for UI presentation. See [DISPLAY.md spec](https://github.com/zocomputer/skills/blob/main/DISPLAY.md).
-6. Run `bun install && bun validate` locally. Fix everything it flags.
-7. Open a PR using the template. Fill in every section.
-
-### For a Persona
-
-1. Add a single file `personas/<your-slug>.md` with frontmatter (`name`, `description`, `author`).
-2. The body is the persona's system prompt.
-3. Run `bun validate`.
-4. Open a PR.
-
-### For a Prompt
-
-1. Add a single file `prompts/<your-slug>.prompt.md`.
-2. Include frontmatter (`name`, `description`, `author`).
-3. The body is the prompt.
-4. Run `bun validate`.
-5. Open a PR.
-
-### For a Resource (external link)
-
-1. Add a row to `resources.md` under the appropriate section.
-2. Format: `- [Name](url) — One-sentence description. (Author)`
-3. Open a PR. Description must explain *why this matters*, not just what it is.
+- **Disclose self-promotion.** Linking your own work is fine — say so in the issue/PR.
+- **No paid placements.** This isn't a billboard. If money changed hands for a link, we won't take it.
+- **No data-exfiltrating tools** without an obvious, prominent warning at the link itself.
+- **Linked work needs a license you're allowed to share.** Your repo, your call — but if it's proprietary, say so.
 
 ## Review process
 
-- All PRs require approval from a CODEOWNER. Right now that's [@Jeff-Kazzee](https://github.com/Jeff-Kazzee).
+- All PRs and issue submissions require approval from a CODEOWNER (currently [@Jeff-Kazzee](https://github.com/Jeff-Kazzee)).
 - CI must pass.
-- Expect feedback. Most first-time submissions need at least one revision.
-- We close PRs that go stale (30 days without author response).
+- Expect direct feedback. Most first-time submissions need at least one revision.
+- We close stale submissions (30 days without response).
+
+## Pruning
+
+This directory is curated, not append-only. Entries get removed when:
+
+- The link rots (404, parked domain, deleted repo).
+- The work no longer reflects the quality bar.
+- The author asks us to remove it.
+- It becomes redundant with a stronger entry.
+
+Pruning is not personal. It's the whole point of the place.
 
 ## Pushback policy
 
 If your submission has a problem, we will tell you directly. Not "you might want to consider" — direct. This is intentional. We treat you like a capable contributor whose time is worth saving.
 
-If you think we're wrong, push back. Submit a counterargument in the PR. We've changed our minds before.
+If you think we're wrong, push back in the issue or PR. We've changed our minds before.
 
 ## Code of conduct
 
@@ -103,4 +93,4 @@ See [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md). Standard Contributor Covenant. B
 
 ## Licensing
 
-By contributing, you agree your submission is original work (or properly attributed) and MIT-licensed.
+The contents of this repo are MIT-licensed. Linking to your work doesn't transfer rights — your repo, your license. By submitting, you confirm the link points at something you have the right to share.

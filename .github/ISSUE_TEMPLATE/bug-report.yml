@@ -1,30 +1,40 @@
-name: Bug in a Skill / Persona / Prompt
-description: Something in the registry is broken or wrong.
-title: "[bug] "
+name: Broken or stale link
+description: A link in INDEX.md is broken, rotted, or no longer reflects the quality bar.
+title: "[broken] "
 labels: ["bug"]
 body:
   - type: input
-    id: item
+    id: entry
     attributes:
-      label: What's broken?
-      placeholder: skills/cancel-subscriptions
+      label: Which entry?
+      description: Name and section from `INDEX.md`.
+      placeholder: e.g., "just-fucking-cancel" under Tools & utilities
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: URL that's broken
+      placeholder: https://...
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What's wrong?
+      options:
+        - Link is 404 / dead
+        - Domain parked or for sale
+        - Content removed or paywalled
+        - Description is misleading or stale
+        - No longer reflects the quality bar
+        - Other
     validations:
       required: true
   - type: textarea
-    id: repro
+    id: detail
     attributes:
-      label: How do you reproduce it?
-    validations:
-      required: true
-  - type: textarea
-    id: expected
-    attributes:
-      label: What did you expect to happen?
-    validations:
-      required: true
-  - type: textarea
-    id: actual
-    attributes:
-      label: What actually happened?
+      label: Details
+      description: Anything the maintainer needs to verify and prune (or fix) the entry.
     validations:
       required: true

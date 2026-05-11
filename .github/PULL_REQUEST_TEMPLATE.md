@@ -3,37 +3,32 @@ Read CONTRIBUTING.md before opening this PR. Fill out every section.
 PRs with empty sections will be closed without review.
 -->
 
-## What is this?
+## What does this PR do?
 
-<!-- One paragraph. What does this submission do, and who is it for? -->
+<!-- Adding a link? Pruning a stale one? Editing a section? -->
 
-## Type
+## If you're adding a link
 
-- [ ] Skill (`skills/`)
-- [ ] Persona (`personas/`)
-- [ ] Prompt (`prompts/`)
-- [ ] Resource link (`resources.md`)
+- **Name**:
+- **URL**:
+- **Section** (Skills / Personas / Prompts / Tools / Projects / Reading / Talks / Courses):
+- **One-sentence description** (when or why a Zo user should care):
+- **Author handle**:
 
-## Why does it belong in zo-garden?
+## Why does this belong in the garden?
 
-<!-- What gap does this fill? Why would a Zo Computer user install or use it? -->
-
-## How did you verify it works?
-
-<!-- Be specific. What did you test, on what setup, with what result? -->
+<!-- What gap does it fill? Why is it worth a Zo user's attention? -->
 
 ## Quality checklist
 
-I confirm my submission passes all of the following (see `CONTRIBUTING.md`):
-
 - [ ] `bun install && bun validate` passes locally
-- [ ] Frontmatter has all required fields with valid values
-- [ ] Description tells the reader *when* to use this, not just *what* it is
-- [ ] No banned LLM phrases in user-facing copy
-- [ ] No secrets, hardcoded paths, or destructive defaults
-- [ ] Original work, or properly attributed with compatible license
-- [ ] I agree to MIT-license this submission
+- [ ] The link works and points at a primary source
+- [ ] The description says *when or why*, not just *what*
+- [ ] No duplicates (I searched `INDEX.md`)
+- [ ] No banned LLM phrases (see `CONTRIBUTING.md`)
+- [ ] This isn't a paid placement
+- [ ] I have the right to share this link
 
 ## Anything else?
 
-<!-- Caveats, known limitations, future plans. -->
+<!-- Caveats, prior conversation, disclosures (e.g., "this is my own project"). -->
