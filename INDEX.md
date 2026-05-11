@@ -14,7 +14,7 @@ Installable Agent Skills (mostly following the [Agent Skills spec](https://agent
 
 <!-- Format: - [Name](url) — When to use it / why it's good. *(author)* -->
 
-- [dreaming](https://jeffkazzee.zo.space/skills/dreaming) — Background workspace consolidation for Zo. Reviews recent activity across Files, Skills, Personas, Rules, Automations, and hosted Sites, then surfaces patterns no single session could see. *(jeffkazzee)*
+- [dreaming](https://jeffkazzee.zo.space/garden/dreaming) — Background workspace consolidation for Zo. Reviews recent activity across Files, Skills, Personas, Rules, Automations, and hosted Sites, then surfaces patterns no single session could see. *(jeffkazzee)*
 
 ## Personas
 
